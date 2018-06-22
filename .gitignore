@@ -24,7 +24,7 @@ coverage
 build/Release
 
 # Dependency directory
-node_modules
+node_modules/*
 
 # Optional npm cache directory
 .npm
@@ -33,6 +33,5 @@ node_modules
 .node_repl_history
 
 # Generated folders
-build
 build/*
 release
