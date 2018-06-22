@@ -16,25 +16,17 @@ angular.module('app', [
     envServiceProvider.config({
         domains: {
             localhost: ['localhost', 'portfolio.test', 'portfolio.local'],
-            development: ['dashboard-development-lb-1956504146.us-west-2.elb.amazonaws.com'],
             production: ['gabeowens.com'],
         },
         vars: {
             localhost: {
-                daarUrl: '//daar.test',
-                videoBucket: 'ulytic-video-dev',
-            },
-            development: {
-                daarUrl: 'http://daar-development-load-balancer-1930668733.us-west-2.elb.amazonaws.com',
-                videoBucket: 'ulytic-video-dev',
+                apiUrl: '//daar.test',
             },
             production: {
-                daarUrl: 'https://daar.datadrivin.com',
-                videoBucket: 'ulytic-video',
+                apiUrl: 'https://daar.datadrivin.com',
             },
             defaults: {
-                daarUrl: 'https://daar.datadrivin.com',
-                videoBucket: 'ulytic-video',
+                apiUrl: 'https://daar.datadrivin.com',
             }
         }
     });
