@@ -1,0 +1,28 @@
+<div class="content" ng-controller="HomeController as homeCtrl">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Welcome to Gabe's Interactive Portfolio!</h1>
+            </div>
+        </div>
+        <div class="row" ng-if="!logged_in">
+            <div class="col-md-offset-2 col-md-8 text-center">
+                <div class="card" style="background-color: #1F77D0;">
+                    <div class="row" style="margin-left: 15px;margin-right: 15px;background-color: #fff;">
+                        <p style="margin: 0px;">
+                            If you received a Username and Password, <a href="#" style="cursor: pointer;" ng-click="sessionCtrl.login()">Log In</a> to gain full access to the site.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4>This site is a Single Page Application built using AngularJS running on a Raspberry Pi in my Living Room.</h4>
+            </div>
+        </div>
+        <div class="row" ng-if="logged_in">
+            
+        </div>
+    </div>
+</div>

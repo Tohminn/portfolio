@@ -1,0 +1,49 @@
+<div class="sidebar has-image" data-color="blue" style='background-image: url("assets/img/ulytic-sidebar-0.jpeg")'>
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a class="simple-text" href="/#/" style="padding-top: 7px;padding-bottom: 1px;">
+                <span style="font-size: 28px;font-weight: 800;">Gabe Owens</span>
+            </a>
+        </div>
+        <ul class="nav">
+            <!--<li class="active">-->
+            <li ng-if="sidebarCtrl.menu.home" style="cursor: pointer;">
+                <a ng-click="sidebarCtrl.navigationChange('/');">
+                    <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                        <path fill="#E4EBF7" d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
+                    </svg></i>
+                    <p>Home</p>
+                </a>
+            </li>
+            <li ng-if="sidebarCtrl.menu.skills" style="cursor: pointer;">
+                <a ng-click="sidebarCtrl.navigationChange('/skills');">
+                    <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                        <path fill="#E4EBF7" d="M6,2C4.89,2 4,2.9 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,3.5L18.5,9H13M8.93,12.22H16V19.29L13.88,17.17L11.05,20L8.22,17.17L11.05,14.35" />
+                    </svg></i>
+                    <p>Skills</p>
+                </a>
+            </li>
+            <li ng-if="sidebarCtrl.menu.experience" style="cursor: pointer;">
+                <a ng-click="sidebarCtrl.navigationChange('/experience');">
+                    <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                        <path fill="#E4EBF7" d="M6,2C4.89,2 4,2.9 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,3.5L18.5,9H13M8.93,12.22H16V19.29L13.88,17.17L11.05,20L8.22,17.17L11.05,14.35" />
+                    </svg></i>
+                    <p>Experience</p>
+                </a>
+            </li>
+            <li ng-if="sidebarCtrl.menu.education" style="cursor: pointer;">
+                <a ng-click="sidebarCtrl.navigationChange('/education');">
+                    <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                        <path fill="#E4EBF7" d="M6,2C4.89,2 4,2.9 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,3.5L18.5,9H13M8.93,12.22H16V19.29L13.88,17.17L11.05,20L8.22,17.17L11.05,14.35" />
+                    </svg></i>
+                    <p>Education</p>
+                </a>
+            </li>
+            <li style="bottom: 10px;position:absolute">
+                <p style="text-align: center; font-size: .68em;line-height: 1.5em;color: cornflowerblue;">
+                    © 2013 - {{sessionCtrl.copywriteDate.getFullYear()}} by Gabriel Owens. All rights reserved.
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>

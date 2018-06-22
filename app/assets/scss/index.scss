@@ -1,0 +1,262 @@
+body {
+  background-color: #e6e6e6;
+}
+
+div {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  outline: none;
+}
+
+.chart-full {
+  height: 25em;
+  border:0px solid #ccc;
+  padding: 0.5em;
+}
+
+.chart-small {
+  height:240px;
+  border:0px solid #ccc;
+  padding:10px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  margin-top: -180px; /* negative value of footer height */
+  height: 180px;
+  width: 960px;
+  color: #808080;
+  font-size: 0.7em;
+  margin-left: 30px;
+  clear:both;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(19, 51, 68, 0.8) none repeat scroll 0 0;
+  overflow: auto;
+  transition:0.3s linear all;
+  opacity: 0;
+}
+
+.modal-card {
+  background: #fff none repeat scroll 0 0;
+  margin: auto;
+  width: 54em;
+  padding: 1.2em;
+  max-width: none;
+  min-width: 340px;
+  border-radius: 4px;
+  overflow-x: auto;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal.ng-enter {
+  transition: opacity .5s ease-out;
+  opacity: 0;
+}
+.modal.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+.modal.ng-leave {
+  transition: opacity .5s ease-out;
+  opacity: 1;
+}
+.modal.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.overlay-contents {
+  margin: auto 10px;
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+}
+
+.modal-card > .overlay-close {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  z-index: 100001;
+  -moz-appearance: none;
+  background: transparent none repeat scroll 0 0;
+  border: 0 none;
+  outline: 0 none;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+.app-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(230, 230, 230,1) none repeat scroll 0 0;
+  transition:0.5s linear all;
+  opacity: 1;
+}
+
+.map-controls {
+  background: rgba(255, 255, 255,.7) none repeat scroll 0 0;
+  border-radius: 4px;
+  margin: .2em;
+  padding: .5em;
+}
+
+.ng-view-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  opacity: 1;
+}
+.ng-view-fade.ng-enter,
+.ng-view-fade.ng-leave {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.ng-view-fade.ng-enter {
+  opacity: 0;
+}
+.ng-view-fade.ng-enter-active {
+  opacity: 1;
+}
+.ng-view-fade.ng-leave {
+  opacity: 1;
+}
+.ng-view-fade.ng-leave-active {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity:1;
+}
+.fade-out {
+  opacity:0;
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 128px);
+  left: calc(50% - 128px);
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+  perspective: 800px;
+}
+
+.fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  opacity: 1;
+}
+.fade.ng-enter,
+.fade.ng-leave {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.fade.ng-enter {
+  opacity: 0;
+}
+.fade.ng-enter-active {
+  opacity: 1;
+}
+.fade.ng-leave {
+  opacity: 1;
+}
+.fade.ng-leave-active {
+  opacity: 0;
+}
+
+.inner {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.inner.one {
+  left: 0%;
+  top: 0%;
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid #00A9E0;
+}
+
+.inner.two {
+  right: 0%;
+  top: 0%;
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid #00A9E0;
+}
+
+.inner.three {
+  right: 0%;
+  bottom: 0%;
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid #00A9E0;
+}
+
+.loader-sm {
+  position: absolute;
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  perspective: 800px;
+}
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
