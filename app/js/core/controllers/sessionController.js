@@ -54,7 +54,7 @@ function SessionController (SessionService, OverlayService, $location, $localSto
     };
 
     this.logUserIn = function () {
-        if(self.username !== '' && self.password !== '' && self.username.indexOf('@') > 0 && self.username.indexOf('.') > 0){
+        if(self.username !== '' && self.password !== ''){
             
             SessionService.authorizeUser(self.username, self.password)
                 .then( function ( data ) {

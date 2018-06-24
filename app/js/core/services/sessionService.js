@@ -4,25 +4,24 @@ function SessionService ($q, $rootScope, $localStorage, $http) {
     this.authorizeUser = function (username, password) {
         var dfd = $q.defer();
         var payload = {
-            client_id:  "3gmCaIlAdLGnWW12lbRr3s2pcki4089q",
-            username:   username, password: password, id_token: "",
-            connection: "Username-Password-Authentication",
-            grant_type: "Password", scope: "openid", device: "browser"
+            username:   username, 
+            password: password,
         };
-        $http.post('https://ulytic.auth0.com/oauth/ro', payload )
+        $http.post('http://api.gabeowens.com/', payload )
             .then( function success( response ) {
-                var expirationTime = new Date();
-                expirationTime.setMinutes(expirationTime.getMinutes() + 30);
+                console.log(response);
+                // var expirationTime = new Date();
+                // expirationTime.setMinutes(expirationTime.getMinutes() + 30);
                 
-                $localStorage.loginExpiration = expirationTime;
-                $localStorage.accessToken = response.data.access_token;
-                $localStorage.idToken = response.data.id_token;
+                // $localStorage.loginExpiration = expirationTime;
+                // $localStorage.accessToken = response.data.access_token;
+                // $localStorage.idToken = response.data.id_token;
                 
-                var decryptToken = self.decryptToken(response.data.id_token);
-                $localStorage.authZeroId = decryptToken.sub;
-                $localStorage.oauthId = decryptToken.sub.split('|')[1];
+                // var decryptToken = self.decryptToken(response.data.id_token);
+                // $localStorage.authZeroId = decryptToken.sub;
+                // $localStorage.oauthId = decryptToken.sub.split('|')[1];
 
-                dfd.resolve({OauthUser: decryptToken.sub.split('|')[1]});
+                dfd.resolve({response: response});
             }).catch( function failure( err ) {
                 dfd.reject(false);
             });
