@@ -9,6 +9,7 @@ function SessionService ($q, $rootScope, $localStorage, $http) {
         };
         $http.post('http://api.gabeowens.com/', payload )
             .then( function success( response ) {
+                console.log('Request success');
                 console.log(response);
                 // var expirationTime = new Date();
                 // expirationTime.setMinutes(expirationTime.getMinutes() + 30);
