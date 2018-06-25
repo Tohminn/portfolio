@@ -7,18 +7,19 @@
     }    
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['username']) && isset($_POST['password'])) {
+        $requestBody = file_get_contents('php://input');
+        $post_vars = json_decode($requestBody)
+        if (isset($post_vars['username']) && isset($post_vars['password'])) {
             $response = [
                 'login' => True,
-                'username' => $_POST['username'],
-                'password' => $_POST['password'],
+                'username' => $post_vars['username'],
+                'password' => $post_vars['password'],
             ];
             echo json_encode($response);
         }else{
             $response = [
                 'login' => False,
-                'username' => $_POST['username'],
-                'password' => $_POST['password'],
+                'requestBody' => $requestBody,
             ];
             echo json_encode($response);
         }
