@@ -8,7 +8,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $requestBody = file_get_contents('php://input');
-        $post_vars = json_decode($requestBody)
+        $post_vars = json_decode($requestBody);
         if (isset($post_vars['username']) && isset($post_vars['password'])) {
             $response = [
                 'login' => True,
