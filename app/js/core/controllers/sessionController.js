@@ -2,7 +2,7 @@
 function SessionController (SessionService, OverlayService, $location, $localStorage, $uibModal, $window, $timeout) {
     var self = this;
     this.logging_in = false;
-    this.authenticated = SessionService.getJwtToken() || false;
+    this.authenticated = false;
     this.username = '';
     this.rememberMe = false;
     if($localStorage.rememberMeName){
@@ -16,41 +16,30 @@ function SessionController (SessionService, OverlayService, $location, $localSto
 
     // Uses functions within Ctrl, so is called at the end
     this.checkLoggedInStatus = function(){
-        if(SessionService.getJwtToken()) {
-            SessionService.refreshToken().then( function () {
-                
-                self.authenticated = true;
-                OverlayService.removeOverlay();
+        if(SessionService.getLoginStatus()) {
+            SessionService.refreshToken();
+
+            self.authenticated = true;
+            OverlayService.removeOverlay().then( function () {
                 if($location.url() === ''){
                     $location.url('/');
                 }
-
-            }).catch( function () {
-                console.log('Not Authed because refreshtoken failed');
-                self.authenticated = false;
-                self.logUserOut();
-                $timeout(function() {
-                    var element = $window.document.getElementById('username');
-                    if(element){
-                        element.focus();
-                    }
-                });
             });
         } else {
-            console.log('Not Authed because authenticated is false');
             self.logUserOut();
-            self.authenticated = false;
-            $timeout(function() {
-                var element = $window.document.getElementById('username');
-                if(element){
-                    element.focus();
-                }
-            });
         }
     };
 
     this.login = function () {
         this.logging_in = true;
+    };
+
+    this.cancelLogin = function () {
+        OverlayService.applyOverlay();
+        this.logging_in = false;
+        OverlayService.removeOverlay().then( function () {
+            $location.url('/');
+        });
     };
 
     this.logUserIn = function () {
@@ -69,6 +58,13 @@ function SessionController (SessionService, OverlayService, $location, $localSto
                             delete $localStorage.rememberMeName;
                         }
                     }
+                    self.authenticated = true;
+                    self.logging_in = false;
+
+                    OverlayService.removeOverlay();
+                    if($location.url() === ''){
+                        $location.url('/');
+                    }
                 })
                 .catch( function () {
                     self.badLoginAttempt();
@@ -77,7 +73,6 @@ function SessionController (SessionService, OverlayService, $location, $localSto
         else{
             self.badLoginAttempt();
         }
-            
     };
 
     this.badLoginAttempt = function(){
@@ -89,23 +84,12 @@ function SessionController (SessionService, OverlayService, $location, $localSto
     };
 
     this.logUserOut = function () {
+        OverlayService.applyOverlay();
         SessionService.logUserOut().then( function () {
-            self.authenticated = false;
-            OverlayService.removeOverlay();
-        });
-    };
-
-    this.forgotPassword = function () {
-        $uibModal.open({
-            templateUrl: "/account/templates/passwordReset.html",
-            size: 'sm',
-            controllerAs: 'modalCtrl',
-            controller: 'ModalController',
-            resolve: {
-                params : function () {
-                    return {};
-                }
-            }
+            OverlayService.removeOverlay().then( function () {
+                self.authenticated = false;
+                $location.url('/');
+            });
         });
     };
 

@@ -4,7 +4,6 @@ angular.module('app', [
     'ngStorage',
     'ngMap',
     'ngCookies',
-    // 'ngMaterial',
     'ngAnimate',
     'ngFileUpload',
     'dndLists',
@@ -12,25 +11,23 @@ angular.module('app', [
     'localytics.directives',
     'app.templates'
 ]).config(['envServiceProvider', '$compileProvider', function (envServiceProvider, $compileProvider) {
-    // set the domains and variables for each environment 
     envServiceProvider.config({
         domains: {
             localhost: ['localhost', 'portfolio.test', 'portfolio.local'],
-            production: ['gabeowens.com'],
+            production: ['gabeowens.com', 'www.gabeowens.com'],
         },
         vars: {
             localhost: {
-                apiUrl: '//daar.test',
+                apiUrl: '//portfolioApi.test',
             },
             production: {
-                apiUrl: 'https://daar.datadrivin.com',
+                apiUrl: 'http://api.gabeowens.com',
             },
             defaults: {
-                apiUrl: 'https://daar.datadrivin.com',
+                apiUrl: 'http://api.gabeowens.com',
             }
         }
     });
-    // run the environment check, so the comprobation is made before controllers and services are built 
     envServiceProvider.check();
     if(envServiceProvider.get() == 'production'){
         $compileProvider.debugInfoEnabled(false);
@@ -49,6 +46,9 @@ angular.module('app').config(['$routeProvider',
             templateUrl: '/main/templates/home.html'
         }).
         when('/#/', {
+            templateUrl: '/main/templates/home.html'
+        }).
+        when('/#', {
             templateUrl: '/main/templates/home.html'
         }).
         when('/skills', {

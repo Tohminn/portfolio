@@ -5,7 +5,7 @@
                 <h1>Welcome to Gabe's Interactive Portfolio!</h1>
             </div>
         </div>
-        <div class="row" ng-if="!logged_in">
+        <div class="row" ng-if="!sessionCtrl.authenticated">
             <div class="col-md-offset-2 col-md-8 text-center">
                 <div class="card" style="background-color: #1F77D0;">
                     <div class="row" style="margin-left: 15px;margin-right: 15px;background-color: #fff;">
@@ -16,13 +16,58 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h4>This site is a Single Page Application built using AngularJS running on a Raspberry Pi in my Living Room.</h4>
+        <div class="row" ng-if="sessionCtrl.authenticated">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h4>This site is a Single Page Application built using AngularJS running on a Raspberry Pi in my Living Room.</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="card" style="padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <h2>Contact</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <b>Email: </b> {{homeCtrl.contact.email}}
+                                            <br>
+                                            <b>Website: </b> <a href="{{homeCtrl.contact.website}}" style="cursor: pointer;">{{homeCtrl.contact.website}}</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <b>Phone: </b> {{homeCtrl.contact.phone}}
+                                            <br>
+                                            <b>LinkedIn: </b> <a href="{{homeCtrl.contact.linkedIn}}" style="cursor: pointer;">{{homeCtrl.contact.linkedIn}}</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="card" style="padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <h2>About Me</h2>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img ng-src="assets/img/profile/profile_pic.jpg" style="height:240px;width:240px;border-radius:100%"/>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>{{homeCtrl.aboutMe.intro}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row" ng-if="logged_in">
-            
-        </div>
     </div>
+    <div><br><br><br><br><br><br></div>
 </div>

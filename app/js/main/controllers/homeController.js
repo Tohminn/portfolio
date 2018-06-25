@@ -2,7 +2,16 @@
 function HomeController ($rootScope, $scope, $location) {
     var self = this;
 
-    $scope.logged_in = false;
+    self.contact = {
+        email : 'GabeVOwens@gmail.com',
+        phone : '(217) 691-8664',
+        website: 'http://gabeowens.com',
+        linkedIn: 'https://www.linkedin.com/in/gabeowens'
+    };
+
+    self.aboutMe = {
+        intro : 'This is the intro.'
+    };
 
     $scope.navigationChange = function(route){
         var url = '/';
