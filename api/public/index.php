@@ -6,7 +6,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['username']) && isset($_POST['password'])) {
-            echo 'login api';
+            echo '{"login": true, "username": "'.$_POST['username'].'"';
         }
     }
 
