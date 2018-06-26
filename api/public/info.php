@@ -1,6 +1,7 @@
 <?php
     session_start();
-    header('Access-Control-Allow-Origin: http://gabeowens.com');
+    // header('Access-Control-Allow-Origin: http://gabeowens.com');
+    header('Access-Control-Allow-Origin: http://portfolio.test');
     header('Access-Control-Allow-Credentials: true');
     header('Content-Type: application/json');
     header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
@@ -28,22 +29,22 @@
                             'linkedIn' => 'https://www.linkedin.com/in/gabeowens'
                         ],
                         'references' => [
-                            'ref_1' => [
+                            [
                                 'name' => 'William Martin',
                                 'job' => 'CEO of Ulytic Inc',
                                 'phone' => '(660)631-4680'
                             ],
-                            'ref_2' => [
+                            [
                                 'name' => 'Gerogi Angelov',
                                 'job' => 'Software Engineer',
                                 'phone' => '(773)751-9932'
                             ],
-                            'ref_3' => [
+                            [
                                 'name' => 'Michael Crawford',
                                 'job' => 'Software Engineer',
                                 'phone' => '(573)979-4671'
                             ],
-                            'ref_4' => [
+                            [
                                 'name' => 'Spencer Rennier',
                                 'job' => 'Financial Advisor',
                                 'phone' => '(573)424-9632'

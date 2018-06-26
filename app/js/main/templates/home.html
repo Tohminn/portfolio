@@ -31,14 +31,14 @@
                                     <h2>Contact</h2>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <b>Email: </b> {{$storage.contact.email}}
+                                            <b>Email: </b> {{$storage.homePage.contact.email}}
                                             <br>
-                                            <b>Website: </b> <a href="{{$storage.contact.website}}" style="cursor: pointer;">{{$storage.contact.website}}</a>
+                                            <b>Website: </b> <a href="{{$storage.homePage.contact.website}}" style="cursor: pointer;">{{$storage.homePage.contact.website}}</a>
                                         </div>
                                         <div class="col-md-6">
-                                            <b>Phone: </b> {{$storage.contact.phone}}
+                                            <b>Phone: </b> {{$storage.homePage.contact.phone}}
                                             <br>
-                                            <b>LinkedIn: </b> <a href="{{$storage.contact.linkedIn}}" style="cursor: pointer;">{{$storage.contact.linkedIn}}</a>
+                                            <b>LinkedIn: </b> <a href="{{$storage.homePage.contact.linkedIn}}" style="cursor: pointer;">{{$storage.homePage.contact.linkedIn}}</a>
 
                                         </div>
                                     </div>
@@ -48,36 +48,11 @@
                                 <div class="col-md-offset-1 col-md-10 text-center">
                                     <h2>References</h2>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-offset-1 col-md-10 well">
-                                                    <b>Name: </b>{{$storage.references.ref_1.name}}<br>
-                                                    <b>Job Title: </b>{{$storage.references.ref_1.job}}<br>
-                                                    <b>Phone: </b>{{$storage.references.ref_1.phone}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-offset-1 col-md-10 well">
-                                                    <b>Name: </b>{{$storage.references.ref_2.name}}<br>
-                                                    <b>Job Title: </b>{{$storage.references.ref_2.job}}<br>
-                                                    <b>Phone: </b>{{$storage.references.ref_2.phone}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-offset-1 col-md-10 well">
-                                                    <b>Name: </b>{{$storage.references.ref_3.name}}<br>
-                                                    <b>Job Title: </b>{{$storage.references.ref_3.job}}<br>
-                                                    <b>Phone: </b>{{$storage.references.ref_3.phone}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-offset-1 col-md-10 well">
-                                                    <b>Name: </b>{{$storage.references.ref_4.name}}<br>
-                                                    <b>Job Title: </b>{{$storage.references.ref_4.job}}<br>
-                                                    <b>Phone: </b>{{$storage.references.ref_4.phone}}
-                                                </div>
+                                        <div class="col-md-6" ng-repeat="reference in $storage.homePage.references">
+                                            <div class="well">
+                                                <b>Name: </b>{{reference.name}}<br>
+                                                <b>Job Title: </b>{{reference.job}}<br>
+                                                <b>Phone: </b>{{reference.phone}}
                                             </div>
                                         </div>
                                     </div>
@@ -96,18 +71,21 @@
                                         <div class="col-md-4">
                                             <img ng-src="assets/img/profile/profile_pic.jpg" style="height:240px;width:240px;border-radius:100%"/>
                                         </div>
-                                        <div class="col-md-8">
-                                            <p>{{$storage.aboutMe.intro}}</p>
-                                            <p>{{$storage.aboutMe.intern_1}}</p>
+                                        <div class="col-md-7">
+                                            <p>{{$storage.homePage.aboutMe.intro}}</p>
+                                            <p>{{$storage.homePage.aboutMe.intern_1}}</p>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4" style="padding-top: 50px;">
-                                            <img ng-src="assets/img/profile/Master_of_IT.jpg" style="height:240px;width:240px;"/>
+                                        <div class="col-md-4" style="padding-top: 150px;">
+                                            <div layout="column" layout-align="center center">
+                                                <img ng-src="assets/img/profile/Master_of_IT.jpg" style="height:240px;width:240px;"/>
+                                            </div>
+                                            
                                         </div>
-                                        <div class="col-md-8">
-                                            <p>{{$storage.aboutMe.work_1}}</p>
-                                            <p>{{$storage.aboutMe.work_2}}</p>
+                                        <div class="col-md-7">
+                                            <p>{{$storage.homePage.aboutMe.work_1}}</p>
+                                            <p>{{$storage.homePage.aboutMe.work_2}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +97,16 @@
                     <div class="col-md-offset-1 col-md-10">
                         <div class="card" style="padding-bottom: 20px;">
                             <div class="row">
-                                
+                                <div class="col-md-12 text-center">
+                                    <h2>Project Examples</h2>
+                                    <div class="row">
+                                        <div class="col-md-6" ng-repeat="project in $storage.homePage.projects">
+                                            <div class="well">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

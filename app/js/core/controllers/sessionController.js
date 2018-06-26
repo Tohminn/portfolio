@@ -19,11 +19,6 @@ function SessionController (SessionService, OverlayService, AccountService, $loc
         if(SessionService.getLoginStatus()) {
             SessionService.refreshToken();
             AccountService.getUserData().then( function (response) {
-                $localStorage.contact = response.contact;
-                $localStorage.aboutMe = response.aboutMe;
-                $localStorage.references = response.references;
-                $localStorage.projects = response.projects;
-
                 self.authenticated = true;
                 OverlayService.removeOverlay().then( function () {
                     if($location.url() === ''){
@@ -70,9 +65,6 @@ function SessionController (SessionService, OverlayService, AccountService, $loc
                     self.authenticated = true;
                     self.logging_in = false;
                     AccountService.getUserData().then( function (response) {
-                        $localStorage.contact = response.contact;
-                        $localStorage.aboutMe = response.aboutMe;
-
                         OverlayService.removeOverlay();
                         if($location.url() === ''){
                             $location.url('/');

@@ -1,6 +1,7 @@
 <?php
     session_start();
-    header('Access-Control-Allow-Origin: http://gabeowens.com');
+    // header('Access-Control-Allow-Origin: http://gabeowens.com');
+    header('Access-Control-Allow-Origin: http://portfolio.test');
     header('Access-Control-Allow-Credentials: true');
     header('Content-Type: application/json');
     header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
