@@ -35,7 +35,10 @@ angular.module('app', [
     else {
         $compileProvider.debugInfoEnabled(true);
     }
-}]);
+}]).config(function ($httpProvider) {
+    $httpProvider.defaults.withCredentials = true;
+    //rest of route code
+});
 
 angular.module('app.templates', []);
 

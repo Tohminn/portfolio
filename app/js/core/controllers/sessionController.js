@@ -1,5 +1,5 @@
 
-function SessionController (SessionService, OverlayService, $location, $localStorage, $uibModal, $window, $timeout) {
+function SessionController (SessionService, OverlayService, AccountService, $location, $localStorage, $uibModal, $window, $timeout) {
     var self = this;
     this.logging_in = false;
     this.authenticated = false;
@@ -18,13 +18,23 @@ function SessionController (SessionService, OverlayService, $location, $localSto
     this.checkLoggedInStatus = function(){
         if(SessionService.getLoginStatus()) {
             SessionService.refreshToken();
+            AccountService.getUserData().then( function (response) {
+                $localStorage.contact = response.contact;
+                $localStorage.aboutMe = response.aboutMe;
+                $localStorage.references = response.references;
+                $localStorage.projects = response.projects;
 
-            self.authenticated = true;
-            OverlayService.removeOverlay().then( function () {
-                if($location.url() === ''){
-                    $location.url('/');
-                }
+                self.authenticated = true;
+                OverlayService.removeOverlay().then( function () {
+                    if($location.url() === ''){
+                        $location.url('/');
+                    }
+                });
+            })
+            .catch( function () {
+                self.badLoginAttempt();
             });
+            
         } else {
             self.logUserOut();
         }
@@ -44,7 +54,6 @@ function SessionController (SessionService, OverlayService, $location, $localSto
 
     this.logUserIn = function () {
         if(self.username !== '' && self.password !== ''){
-            
             SessionService.authorizeUser(self.username, self.password)
                 .then( function ( data ) {
                     OverlayService.applyOverlay();
@@ -60,11 +69,18 @@ function SessionController (SessionService, OverlayService, $location, $localSto
                     }
                     self.authenticated = true;
                     self.logging_in = false;
+                    AccountService.getUserData().then( function (response) {
+                        $localStorage.contact = response.contact;
+                        $localStorage.aboutMe = response.aboutMe;
 
-                    OverlayService.removeOverlay();
-                    if($location.url() === ''){
-                        $location.url('/');
-                    }
+                        OverlayService.removeOverlay();
+                        if($location.url() === ''){
+                            $location.url('/');
+                        }
+                    })
+                    .catch( function () {
+                        self.badLoginAttempt();
+                    });
                 })
                 .catch( function () {
                     self.badLoginAttempt();

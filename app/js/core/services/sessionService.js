@@ -27,17 +27,13 @@ function SessionService ($q, $rootScope, $localStorage, $http, envService) {
     this.refreshToken = function () {
         var expirationTime = new Date();
         expirationTime.setMinutes(expirationTime.getMinutes() + 30);
-        $localStorage.loginExpiration = expirationTime;
+        $localStorage.loginExpiration = expirationTime.getTime();
     };
 
     this.getLoginStatus = function () {
         if ($localStorage.authorized === true){
-            console.log('authorized');
             var now = new Date();
-            console.log($localStorage.loginExpiration);
-            console.log(now.getTime());
             if ($localStorage.loginExpiration >= now.getTime()){
-                console.log('not expired');
                 return true;
             }
         }

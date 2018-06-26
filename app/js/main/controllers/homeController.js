@@ -1,17 +1,8 @@
 
-function HomeController ($rootScope, $scope, $location) {
+function HomeController ($rootScope, $scope, $location, $localStorage) {
     var self = this;
 
-    self.contact = {
-        email : 'GabeVOwens@gmail.com',
-        phone : '(217) 691-8664',
-        website: 'http://gabeowens.com',
-        linkedIn: 'https://www.linkedin.com/in/gabeowens'
-    };
-
-    self.aboutMe = {
-        intro : 'This is the intro.'
-    };
+    $scope.$storage = $localStorage;
 
     $scope.navigationChange = function(route){
         var url = '/';

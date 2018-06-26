@@ -1,9 +1,11 @@
 <?php
-    header('Access-Control-Allow-Origin: *');
+    session_start();
+    header('Access-Control-Allow-Origin: http://gabeowens.com');
+    header('Access-Control-Allow-Credentials: true');
     header('Content-Type: application/json');
     header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     header('Access-Control-Allow-Headers: Authorization, WWW-Authenticate, Origin, X-Requested-With, Content-Type, Accept');
-    session_start();
+    
 
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         echo '404 - Not Found';
@@ -22,8 +24,10 @@
                     'login' => True
                 ];
                 $_SESSION['authenticated'] = True;
-                // $now = new Datetime();
-                
+                $expiration = new DateTime();
+                $expiration->add(new DateInterval('PT30M'));
+                $_SESSION['expiration'] = $expiration->format('Y-m-d H:i:s');
+
             }
         }
         echo json_encode($response);

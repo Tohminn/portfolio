@@ -31,15 +31,54 @@
                                     <h2>Contact</h2>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <b>Email: </b> {{homeCtrl.contact.email}}
+                                            <b>Email: </b> {{$storage.contact.email}}
                                             <br>
-                                            <b>Website: </b> <a href="{{homeCtrl.contact.website}}" style="cursor: pointer;">{{homeCtrl.contact.website}}</a>
+                                            <b>Website: </b> <a href="{{$storage.contact.website}}" style="cursor: pointer;">{{$storage.contact.website}}</a>
                                         </div>
                                         <div class="col-md-6">
-                                            <b>Phone: </b> {{homeCtrl.contact.phone}}
+                                            <b>Phone: </b> {{$storage.contact.phone}}
                                             <br>
-                                            <b>LinkedIn: </b> <a href="{{homeCtrl.contact.linkedIn}}" style="cursor: pointer;">{{homeCtrl.contact.linkedIn}}</a>
+                                            <b>LinkedIn: </b> <a href="{{$storage.contact.linkedIn}}" style="cursor: pointer;">{{$storage.contact.linkedIn}}</a>
 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-10 text-center">
+                                    <h2>References</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-offset-1 col-md-10 well">
+                                                    <b>Name: </b>{{$storage.references.ref_1.name}}<br>
+                                                    <b>Job Title: </b>{{$storage.references.ref_1.job}}<br>
+                                                    <b>Phone: </b>{{$storage.references.ref_1.phone}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-offset-1 col-md-10 well">
+                                                    <b>Name: </b>{{$storage.references.ref_2.name}}<br>
+                                                    <b>Job Title: </b>{{$storage.references.ref_2.job}}<br>
+                                                    <b>Phone: </b>{{$storage.references.ref_2.phone}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-offset-1 col-md-10 well">
+                                                    <b>Name: </b>{{$storage.references.ref_3.name}}<br>
+                                                    <b>Job Title: </b>{{$storage.references.ref_3.job}}<br>
+                                                    <b>Phone: </b>{{$storage.references.ref_3.phone}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-offset-1 col-md-10 well">
+                                                    <b>Name: </b>{{$storage.references.ref_4.name}}<br>
+                                                    <b>Job Title: </b>{{$storage.references.ref_4.job}}<br>
+                                                    <b>Phone: </b>{{$storage.references.ref_4.phone}}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -58,10 +97,29 @@
                                             <img ng-src="assets/img/profile/profile_pic.jpg" style="height:240px;width:240px;border-radius:100%"/>
                                         </div>
                                         <div class="col-md-8">
-                                            <p>{{homeCtrl.aboutMe.intro}}</p>
+                                            <p>{{$storage.aboutMe.intro}}</p>
+                                            <p>{{$storage.aboutMe.intern_1}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4" style="padding-top: 50px;">
+                                            <img ng-src="assets/img/profile/Master_of_IT.jpg" style="height:240px;width:240px;"/>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <p>{{$storage.aboutMe.work_1}}</p>
+                                            <p>{{$storage.aboutMe.work_2}}</p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-10">
+                        <div class="card" style="padding-bottom: 20px;">
+                            <div class="row">
+                                
                             </div>
                         </div>
                     </div>
