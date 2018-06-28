@@ -11,7 +11,7 @@ function AccountService ($http, $q, $localStorage, $timeout, envService) {
                         $localStorage.homePage.contact = response.data.contact;
                         $localStorage.homePage.aboutMe = response.data.aboutMe;
                         $localStorage.homePage.references = response.data.references;
-                        $localStorage.homePage.projects = response.data.projects;
+                        $localStorage.projects = response.data.projects;
                         dfd.resolve(true);
                     });
                 }else{

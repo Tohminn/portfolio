@@ -11,7 +11,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response = [
             'result' => False,
-            'message' => 'Unauthorized: '+$_SESSION['authenticated']+' Expiration:'+$_SESSION['expiration']
+            'message' => 'Unauthorized'
         ];
         if(isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === True){
             $response['message'] = 'authenticated';
@@ -20,6 +20,10 @@
                 $expiration = new DateTime($_SESSION['expiration']);
                 $now = new DateTime();
                 if ($now <= $expiration){
+                    $expiration = new DateTime();
+                    $expiration->add(new DateInterval('PT30M'));
+                    $_SESSION['expiration'] = $expiration->format('Y-m-d H:i:s');
+
                     $response = [
                         'result' => True,
                         'contact' => [
@@ -56,7 +60,32 @@
                             'work_1' => 'Upon graduating from the University of Missouri, I was offered and accepted a full-time position at VU as a Software Engineer. Working at VU was a great learning experience, as well as an amazing work environment. During my first year of full time employment, VU made the decision to transition from a "PHP Shop" to a ".NET Shop". This included complete training of C#/.Net development in order to build, deploy, and maintain large business-centric applications. I also had the opportunity continue my education through attenting conferences such as the HTML5 Developer Conference in San Francisco and the Days of .NET conference in St. Louis. In June of 2014, I was awarded VU\'s Master of IT award (pictured left).',
                             'work_2' => 'In May of 2016, I left VU to work full-time as Chief Information Officer at Ulytic Inc, a company which I co-founded. Being the only full-time engineer, I was responsible for overseeing the entirety of the business\' software development and IT infrastructure. This allowed me to grow my knowledge in all aspects of development, from domain routing and load balanacing cloud server clusters to database design and large data storage. As Ulytic\'s core ability was to analize video with computer vision, I was able to develop my skills in AI and Neural Networks, as well as design custom object tracking algorithms. In the fall of 2017, I led the design and development of a distributable software package that would be licensed to Panasonic as an add-on system to track parking lot vehicles.'
                         ],
-                        'projects' => []
+                        'projects' => [
+                            [
+                                'id' => 1,
+                                'title' => 'Portfolio Website',
+                                'description' => 'More details about the website you are on right now.',
+                                'page_details' => []
+                            ],
+                            [
+                                'id' => 3,
+                                'title' => 'Image Annotator',
+                                'description' => 'A Python program I wrote to create training data for neural networks.',
+                                'page_details' => []
+                            ],
+                            [
+                                'id' => 2,
+                                'title' => 'Computer Vision Demo',
+                                'description' => 'Demonstration of a Neural Network I trained running alongside a custom tracking algorithm.',
+                                'page_details' => []
+                            ],
+                            [
+                                'id' => 4,
+                                'title' => 'Wedding Website',
+                                'description' => 'A simple website using a Node.js relay to live stream my sister\'s wedding.',
+                                'page_details' => []
+                            ],
+                        ]
                     ];
                 }
             }

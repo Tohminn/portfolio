@@ -1,0 +1,29 @@
+<p>
+    This Portfolio Website is a Single Page Application built using AngularJS. The core of the website is a fork of the Client Dashboard that I built for my company (with permission), although the majority of the code has been rewritten for this purpose.
+</p>
+<b>Back-End Setup</b>
+<p>
+    For the back-end, I decided to go cheap and use a spare RaspberryPi Microcontroller I had. Despite the limited processing power of the Pi, serving up a Single Page Application does not hinder proformance of the website as most of the processing is done on the client side. The Pi is running Raspian with Apache and PHP installed. While Node.js is installed on the Pi, I'm only using it for NPM. The reasoning is that in order to show you my capabilities with routing and subdomains, I'm using Apache Virtual Hosts to host both 'gabeowens.com' and 'api.gabeowens.com' on the same device. 
+</p>
+<b>Login Setup</b>
+<p>
+    First, I would NOT recommend using this login setup on any business application. This login setup is only used to simplify the development and deployment of my personal website. The login credentials are hardcoded, for pete's sake. Second, I would recommend using a third party application, such as Auth0 (<a href="https://auth0.com/" style="cursor: pointer;">link</a>), to handle user logins. Besides making user profiles easier to manage, using a third party application also enables you to bypass the need to use session cookies by using JSON Web Tokens (JWT), which makes load balancing to server clusters and API calls much more reliable and secure, amoung other things.<br>
+</p>
+<p>
+    With that disclaimer out of the way, the login on this website utilizes a SessionController and SessionService on the application side to authenticate logins. It sends an HTTP POST request to the API, which validates the credentials, sets a Session expiration time, and returns a Session Cookie. The app then sets a client side expiration time in the local browser storage, then procedes to call the API again to get the account information which is displayed on the Home page.
+</p>
+<b>API</b>
+<p>
+    The API is very basic and not RESTful, as there is not lot of information to serve to the client. It does show a few ways that you can organize the gathering of data to be displayed on the site. The info.php file shows how JSON objects can be returned to the client, while the projects.php file implements a controller and templates to show that entire pages can be loaded into a site (such as the one you are on now). These processes hint at Lazy Loading pages, but are more intended to prevent malicious users from digging through the Javascript to obtain sensitive information.
+</p>
+<b>Style</b>
+<p>
+    Bootstrap, I'm not a web designer. Tell me your requirements and explain how you want it to look, I will most likely be able to create the image you have in mind. I believe in rapid feedback/iterations in front-end development, so that the customer can see the evolution of the site during development. Constant communication also helps determine which features to include based on requirements and time allotment.
+</p>
+
+
+<style type="text/css">
+    p {
+        text-indent: 30px;
+    }
+</style>

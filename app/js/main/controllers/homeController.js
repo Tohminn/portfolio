@@ -1,9 +1,12 @@
 
 function HomeController ($rootScope, $scope, $location, $localStorage, $timeout) {
     var self = this;
+    
     if(!$localStorage.homePage){
         $localStorage.homePage = {};
-        console.log('set local storage in home');
+    }
+    if(!$localStorage.projects){
+        $localStorage.projects = [];
     }
     $scope.$storage = $localStorage;
 
@@ -18,6 +21,11 @@ function HomeController ($rootScope, $scope, $location, $localStorage, $timeout)
         }
         $rootScope.$emit('navChange', title);
         $location.url(url);
+    };
+
+    $scope.showProject = function(id, title){
+        $rootScope.$emit('navChange', 'Project: '+title);
+        $location.url('/projects/'+id);
     };
 
 

@@ -25,6 +25,10 @@ function sidebarController ($rootScope, SessionService, $location, $window) {
                 url = '/education';
                 title = 'Education';
                 break;
+            case '/projects':
+                url = '/projects';
+                title = 'Project Examples';
+                break;
         }
         $rootScope.$emit('navChange', title);
         $location.url(url);

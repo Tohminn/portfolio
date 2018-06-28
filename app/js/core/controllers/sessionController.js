@@ -1,5 +1,5 @@
 
-function SessionController (SessionService, OverlayService, AccountService, $location, $localStorage, $uibModal, $window, $timeout) {
+function SessionController (SessionService, OverlayService, AccountService, $location, $localStorage, $uibModal, $window, $timeout, $rootScope) {
     var self = this;
     this.logging_in = false;
     this.authenticated = false;
@@ -96,6 +96,7 @@ function SessionController (SessionService, OverlayService, AccountService, $loc
         SessionService.logUserOut().then( function () {
             OverlayService.removeOverlay().then( function () {
                 self.authenticated = false;
+                $rootScope.$emit('navChange', 'Interactive Portfolio');
                 $location.url('/');
             });
         });

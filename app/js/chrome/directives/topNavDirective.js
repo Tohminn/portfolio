@@ -9,7 +9,9 @@ function topNavDirective () {
 
             self.navigationTitle = 'Interactive Portfolio';
             $rootScope.$on('navChange', function (event, data) {
-                self.navigationTitle = data;
+                if (data != self.navigationTitle){
+                    self.navigationTitle = data;
+                }
             });
         }
     };

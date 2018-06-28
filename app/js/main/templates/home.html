@@ -97,12 +97,16 @@
                     <div class="col-md-offset-1 col-md-10">
                         <div class="card" style="padding-bottom: 20px;">
                             <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <h2>Project Examples</h2>
-                                    <div class="row">
-                                        <div class="col-md-6" ng-repeat="project in $storage.homePage.projects">
-                                            <div class="well">
-                                                
+                                <div class="col-md-12">
+                                    <div class="col-md-12 text-center">
+                                        <h2 style="margin-bottom: 0px;">Project Examples</h2>
+                                        <div class="text-center" style="color: #a9a9a9;">Click one to View Details</div>
+                                        <div class="row">
+                                            <div class="col-md-6" ng-repeat="project in $storage.projects" style="cursor: pointer;">
+                                                <div class="well text-center" ng-click="showProject(project.id, project.title)">
+                                                    <h4>{{project.title}}</h4>
+                                                    <p>{{project.description}}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

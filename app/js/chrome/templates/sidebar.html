@@ -7,7 +7,7 @@
         </div>
         <ul class="nav">
             <!--<li class="active">-->
-            <li ng-if="sidebarCtrl.menu.home" style="cursor: pointer;">
+            <li style="cursor: pointer;">
                 <a ng-click="sidebarCtrl.navigationChange('/');">
                     <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
                         <path fill="#E4EBF7" d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
@@ -15,7 +15,7 @@
                     <p>Home</p>
                 </a>
             </li>
-            <li ng-if="sidebarCtrl.menu.skills" style="cursor: pointer;">
+            <li style="cursor: pointer;">
                 <a ng-click="sidebarCtrl.navigationChange('/skills');">
                     <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
                         <path fill="#E4EBF7" d="M6,2C4.89,2 4,2.9 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,3.5L18.5,9H13M8.93,12.22H16V19.29L13.88,17.17L11.05,20L8.22,17.17L11.05,14.35" />
@@ -23,7 +23,7 @@
                     <p>Skills</p>
                 </a>
             </li>
-            <li ng-if="sidebarCtrl.menu.experience" style="cursor: pointer;">
+            <li style="cursor: pointer;">
                 <a ng-click="sidebarCtrl.navigationChange('/experience');">
                     <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
                         <path fill="#E4EBF7" d="M6,2C4.89,2 4,2.9 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,3.5L18.5,9H13M8.93,12.22H16V19.29L13.88,17.17L11.05,20L8.22,17.17L11.05,14.35" />
@@ -31,12 +31,20 @@
                     <p>Experience</p>
                 </a>
             </li>
-            <li ng-if="sidebarCtrl.menu.education" style="cursor: pointer;">
+            <li style="cursor: pointer;">
                 <a ng-click="sidebarCtrl.navigationChange('/education');">
                     <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
                         <path fill="#E4EBF7" d="M6,2C4.89,2 4,2.9 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,3.5L18.5,9H13M8.93,12.22H16V19.29L13.88,17.17L11.05,20L8.22,17.17L11.05,14.35" />
                     </svg></i>
                     <p>Education</p>
+                </a>
+            </li>
+            <li ng-if="sessionCtrl.authenticated" style="cursor: pointer;">
+                <a ng-click="sidebarCtrl.navigationChange('/projects');">
+                    <i><svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                        <path fill="#E4EBF7" d="M6,2C4.89,2 4,2.9 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,3.5L18.5,9H13M8.93,12.22H16V19.29L13.88,17.17L11.05,20L8.22,17.17L11.05,14.35" />
+                    </svg></i>
+                    <p>Project Examples</p>
                 </a>
             </li>
             <li style="bottom: 10px;position:absolute">

@@ -63,8 +63,8 @@ angular.module('app').config(['$routeProvider',
         when('/education', {
             templateUrl: '/main/templates/education.html'
         }).
-        when('/profile', {
-            templateUrl: '/main/templates/profile.html'
+        when('/projects/:projectId?', {
+            templateUrl: '/main/templates/projects.html'
         }).
         when('/error', {
             templateUrl: '/core/templates/error.html'
