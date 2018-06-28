@@ -66,26 +66,30 @@
                         <div class="card" style="padding-bottom: 20px;">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <h2>About Me</h2>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <img ng-src="assets/img/profile/profile_pic.jpg" style="height:240px;width:240px;border-radius:100%"/>
+                                    
+                                    <div class="row text-left">
+                                        <div class="col-md-4 text-center">
+                                            <div layout="column" layout-align="center center">
+                                                <br><br>
+                                                <img ng-src="assets/img/profile/profile_pic.jpg" style="height:240px;width:240px;border-radius:100%"/>
+                                            </div>
                                         </div>
-                                        <div class="col-md-7">
-                                            <p>{{$storage.homePage.aboutMe.intro}}</p>
-                                            <p>{{$storage.homePage.aboutMe.intern_1}}</p>
+                                        <div class="col-md-8">
+                                            <h2 class="text-center">About Me</h2>
+                                            <p style="text-indent: 30px;">{{$storage.homePage.aboutMe.intro}}</p>
+                                            <p style="text-indent: 30px;">{{$storage.homePage.aboutMe.intern_1}}</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4" style="padding-top: 150px;">
+                                    <br><br>
+                                    <div class="row text-left">
+                                        <div class="col-md-4 text-center" style="padding-top: 150px;">
                                             <div layout="column" layout-align="center center">
                                                 <img ng-src="assets/img/profile/Master_of_IT.jpg" style="height:240px;width:240px;"/>
                                             </div>
-                                            
                                         </div>
-                                        <div class="col-md-7">
-                                            <p>{{$storage.homePage.aboutMe.work_1}}</p>
-                                            <p>{{$storage.homePage.aboutMe.work_2}}</p>
+                                        <div class="col-md-8">
+                                            <p style="text-indent: 30px;">{{$storage.homePage.aboutMe.work_1}}</p>
+                                            <p style="text-indent: 30px;">{{$storage.homePage.aboutMe.work_2}}</p>
                                         </div>
                                     </div>
                                 </div>
