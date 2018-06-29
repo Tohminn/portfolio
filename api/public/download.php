@@ -23,10 +23,26 @@
                     $expiration = new DateTime();
                     $expiration->add(new DateInterval('PT30M'));
                     $_SESSION['expiration'] = $expiration->format('Y-m-d H:i:s');
-                    $response = [
-                        'result' => True,
-                        'file' => "data:application/zip;base64,".base64_encode(file_get_contents('../downloads/portfolioWebsite.zip'))
-                    ];
+
+                    $requestBody = file_get_contents('php://input');
+                    $post_vars = json_decode($requestBody);
+                    if (isset($post_vars->fileName) && is_string($post_vars->fileName)){
+                        if (file_exists('../downloads/'.$post_vars->fileName)){
+                            $fileType = 'zip';
+                            $splitName = explode('.', $post_vars->fileName);
+                            if (count($splitName) == 2 && end($splitName) == 'pdf'){
+                                $fileType = 'pdf';
+                            }
+                            $response = [
+                                'result' => True,
+                                'file' => "data:application/".$fileType.";base64,".base64_encode(file_get_contents('../downloads/'.$post_vars->fileName))
+                            ];
+                        }else{
+                            $response['message'] = 'File "'.$post_vars->fileName.'" does not exist';
+                        }
+                    }else{
+                        $response['message'] = 'Missing Parameters';
+                    }
                     
                 }
             }

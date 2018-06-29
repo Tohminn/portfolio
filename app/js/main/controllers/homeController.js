@@ -1,5 +1,5 @@
 
-function HomeController ($rootScope, $scope, $location, $localStorage, $timeout) {
+function HomeController ($rootScope, $scope, $location, $localStorage, $timeout, $http, envService) {
     var self = this;
     
     if(!$localStorage.homePage){
@@ -28,6 +28,21 @@ function HomeController ($rootScope, $scope, $location, $localStorage, $timeout)
         $location.url('/projects/'+id);
     };
 
-
+    $scope.downloadFile = function(fileName){
+        $http.post(envService.read('apiUrl')+'/download.php', {fileName: fileName})
+        .then( function (response){
+            if (response.data.result){
+                var aDoc = document.createElement('a');
+                aDoc.setAttribute('href', response.data.file);
+                aDoc.setAttribute('download', fileName);
+                var body = document.getElementsByTagName('body')[0];
+                body.appendChild(aDoc);
+                aDoc.click();
+            }else{
+                $rootScope.$emit('navChange', 'Error');
+                $location.url('/error');
+            }
+        });
+    };
 }
 angular.module('app').controller('HomeController', HomeController);

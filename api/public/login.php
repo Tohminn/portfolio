@@ -15,12 +15,11 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $requestBody = file_get_contents('php://input');
         $response = [
-            'login' => False,
-            'requestBody' => $requestBody,
+            'login' => False
         ];
         $post_vars = json_decode($requestBody);
         if (isset($post_vars->username) && is_string($post_vars->username) && isset($post_vars->password) && is_string($post_vars->password)) {
-            if (strtolower($post_vars->username) == 'gabe' && $post_vars->password == 'test'){
+            if (strtolower($post_vars->username) == 'application1' && $post_vars->password == 'ASuperSecure1'){
                 $response = [
                     'login' => True
                 ];
