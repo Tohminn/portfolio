@@ -31,7 +31,6 @@
                 }
             }
         }
-        // var_dump($response);
         echo json_encode($response);
     }
 

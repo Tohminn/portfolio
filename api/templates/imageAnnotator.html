@@ -1,13 +1,26 @@
 <p>
-    The Image Annotator is a little Python program I wrote to help streamline the process of creating training data for a Neural Network. After starting the program, you would use the UI to select a folder of images. It would present the images to you and you could draw annotation bounding boxes on the images. For each annotation that was drawn, an entry would appear on a list on the right so that you could label the box and decide if you wanted it to carry forward to the next image (useful for stationary objects like parked cars). When you were done with all the images, you could click a button to export the annotations to a file in JSON format.
+    The Image Annotator is a little Python program I wrote to help me streamline the process of creating training data for a Neural Network. The bright side of the program is that it doesn't require any additional libraries other that Python 2.7, which is already installed on a lot of systems.
 </p>
 <b>Code Base</b>
 <p>
-    As mentioned above, this program was written entirely in Python. The GUI was created using Python's built-in TkInter library. 
+    As mentioned above, this program was written entirely in Python. The GUI was created using Python's built-in TkInter library. The program is started with the launcher.py file, the main class is the image_annotator.py file, and the rest of the program is divided into two folders: display and tools. The display breaks up the display into separate classes. The tools folder contains classes for the image import, annotation export and handling of images.
+</p>
+<b>How to use it</b>
+<p>
+    After starting the program, you can use the UI to select a folder of images. The program will filter the folder for only files ending in '.png', '.jpg', or '.jpeg'. If the images follow the naming scheme of 'frame_{hour}-{min}-{sec}.png', the program will also sort them into ascending order. You can navigate through the images using the arrow buttons.
+</p>
+<p>
+    You can click-n-drag with your mouse to draw a bounding box. For each box that was drawn, an entry will appear on a list on the right so that you can label the box and decide if you want it to carry forward to the next image (useful for stationary objects like parked cars). It also allows you to do fine tuning adjustments to box edges using the guide on the right. You can select a previously drawn box by clicking it on the image or click its 'Edit' button.
+</p>
+<p>
+    When you are done with the images, you can click a button to export the boxes to annotations files in JSON format. An annotation file with a name corresponding to its image will be generated for each image file and all the annotation files will be in a folder of the same name as the image folder you selected, with '-Annotations' appended to the end. That annotations folder will be in the same directory as the image folder you selected. If the annotation folder already exists upon selecting the image folder at the beginning, it will ask if you want to import those annotations. If it exists while exporting, it will ask you if you want to replace it.
 </p>
 
 <style type="text/css">
     p {
         text-indent: 30px;
+    }
+    b {
+        font-size: 16px;
     }
 </style>

@@ -65,26 +65,17 @@
                             [
                                 'id' => 1,
                                 'title' => 'Portfolio Website',
-                                'description' => 'More details about the website you are on right now.',
-                                'page_details' => []
+                                'description' => 'More details about the website you are on right now.'
                             ],
                             [
                                 'id' => 3,
                                 'title' => 'Image Annotator',
-                                'description' => 'A Python program I wrote to create training data for neural networks.',
-                                'page_details' => []
+                                'description' => 'A Python program I wrote to create training data for neural networks.'
                             ],
                             [
                                 'id' => 2,
                                 'title' => 'Computer Vision Demo',
-                                'description' => 'Demonstration of a Neural Network I trained running alongside a custom tracking algorithm.',
-                                'page_details' => []
-                            ],
-                            [
-                                'id' => 4,
-                                'title' => 'Wedding Website',
-                                'description' => 'A simple website using a Node.js relay to live stream my sister\'s wedding.',
-                                'page_details' => []
+                                'description' => 'Demonstration of a Neural Network I trained running alongside a custom tracking algorithm.'
                             ],
                         ]
                     ];

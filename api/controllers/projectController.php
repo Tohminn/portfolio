@@ -45,8 +45,8 @@ class ProjectController {
                     'video' => False,
                     'links' => [
                         [
-                            'name' => 'portfolioWebsite.zip',
-                            'file' => 'portfolioWebsite.zip'
+                            'name' => 'Portfolio_Website.zip',
+                            'file' => 'PortfolioWebsite.zip'
                         ],
                     ]
                 ];
@@ -77,17 +77,12 @@ class ProjectController {
                     'about' => '',
                     'download' => True,
                     'video' => False,
-                    'links' => []
-                ];
-                break;
-            case '4':
-                return [
-                    'id' => 4,
-                    'title' => 'Wedding Website',
-                    'about' => '',
-                    'download' => True,
-                    'video' => False,
-                    'links' => []
+                    'links' => [
+                        [
+                            'name' => 'Image_Annotator.zip',
+                            'file' => 'ImageAnnotator.zip'
+                        ],
+                    ]
                 ];
                 break;
         }
@@ -103,9 +98,6 @@ class ProjectController {
                 break;
             case '3':
                 $project['about'] = file_get_contents('../templates/imageAnnotator.html');
-                break;
-            case '4':
-                $project['about'] = file_get_contents('../templates/weddingWebsite.html');
                 break;
         }
         return $project;
